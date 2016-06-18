@@ -7,7 +7,7 @@ namespace Gallery3WinForm
     {   //Singleton
         private static readonly frmMain _Instance = new frmMain();
 
-        //private clsArtistList _ArtistList = new clsArtistList();
+       // private clsArtistList _ArtistList = new clsArtistList();
 
         public delegate void Notify(string prGalleryName);
 
@@ -23,107 +23,104 @@ namespace Gallery3WinForm
             get { return frmMain._Instance; }
         }
 
-        private void updateTitle(string prGalleryName)
+        //private void updateTitle(string prGalleryName)
+        //{
+        //    if (!string.IsNullOrEmpty(prGalleryName))
+        //        Text = "Gallery (v3 C) - " + prGalleryName;
+        //}
+
+        public void UpdateDisplay()
         {
-            if (!string.IsNullOrEmpty(prGalleryName))
-                Text = "Gallery (v3 C) - " + prGalleryName;
+            //lstArtists.DataSource = null;
+            //string[] lcDisplayList = new string[_ArtistList.Count];
+            //_ArtistList.Keys.CopyTo(lcDisplayList, 0);
+            //lstArtists.DataSource = lcDisplayList;
+            //lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
         }
 
-        //public void UpdateDisplay()
-        lstArtists.DataSource = null;
-        lstArtists.DataSource = Program.SvcClient.GetArtistNames();
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    frmArtist.Run(new clsArtist(_ArtistList));
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error adding new artist");
+            //}
+        }
 
-        //{
-        //    lstArtists.DataSource = null;
-        //    string[] lcDisplayList = new string[_ArtistList.Count];
-        //    _ArtistList.Keys.CopyTo(lcDisplayList, 0);
-        //    lstArtists.DataSource = lcDisplayList;
-        //    lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
-        //}
+        private void lstArtists_DoubleClick(object sender, EventArgs e)
+        {
+            //string lcKey;
 
-        //private void btnAdd_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        frmArtist.Run(new clsArtist(_ArtistList));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error adding new artist");
-        //    }
-        //}
+            //lcKey = Convert.ToString(lstArtists.SelectedItem);
+            //if (lcKey != null)
+            //    try
+            //    {
+            //        frmArtist.Run(_ArtistList[lcKey]);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "This should never occur");
+            //    }
+        }
 
-        //private void lstArtists_DoubleClick(object sender, EventArgs e)
-        //{
-        //    string lcKey;
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    _ArtistList.Save();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "File Save Error");
+            //}
+            Close();
+        }
 
-        //    lcKey = Convert.ToString(lstArtists.SelectedItem);
-        //    if (lcKey != null)
-        //        try
-        //        {
-        //            frmArtist.Run(_ArtistList[lcKey]);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message, "This should never occur");
-        //        }
-        //}
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //string lcKey;
 
-        //private void btnQuit_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        _ArtistList.Save();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "File Save Error");
-        //    }
-        //    Close();
-        //}
+            //lcKey = Convert.ToString(lstArtists.SelectedItem);
+            //if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    try
+            //    {
+            //        _ArtistList.Remove(lcKey);
+            //        lstArtists.ClearSelected();
+            //        UpdateDisplay();
 
-        //private void btnDelete_Click(object sender, EventArgs e)
-        //{
-        //    string lcKey;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Error deleting artist");
+            //    }
+        }
 
-        //    lcKey = Convert.ToString(lstArtists.SelectedItem);
-        //    if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        //        try
-        //        {
-        //            _ArtistList.Remove(lcKey);
-        //            lstArtists.ClearSelected();
-        //            UpdateDisplay();
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    _ArtistList = clsArtistList.RetrieveArtistList();
 
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message, "Error deleting artist");
-        //        }
-        //}
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "File retrieve error");
+            //}
+            UpdateDisplay();
+            //GalleryNameChanged += new Notify(updateTitle);
+            //GalleryNameChanged(_ArtistList.GalleryName);
+            //updateTitle(_ArtistList.GalleryName);
+        }
 
-        //private void frmMain_Load(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        _ArtistList = clsArtistList.RetrieveArtistList();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "File retrieve error");
-        //    }
-        //    UpdateDisplay();
-        //    GalleryNameChanged += new Notify(updateTitle);
-        //    GalleryNameChanged(_ArtistList.GalleryName);
-        //    //updateTitle(_ArtistList.GalleryName);
-        //}
-
-    //    private void btnGalName_Click(object sender, EventArgs e)
-    //    {
-    //        _ArtistList.GalleryName = new InputBox("Enter Gallery Name:").Answer;
-    //        GalleryNameChanged(_ArtistList.GalleryName);
-    //    }
+        private void btnGalName_Click(object sender, EventArgs e)
+        {
+            //_ArtistList.GalleryName = new InputBox("Enter Gallery Name:").Answer;
+            //GalleryNameChanged(_ArtistList.GalleryName);
+        }
 
 
-    //}
+    }
 }

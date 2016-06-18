@@ -18,17 +18,19 @@ namespace Gallery3WinForm
 
         [STAThread]
         static void Main()
-        if (SvcClient != null &&
-        SvcClient.State != System.ServiceModel.CommunicationState.Closed)
-        SvcClient.Close();
-
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //clsPainting.LoadPaintingForm = new clsPainting.LoadPaintingFormDelegate(frmPainting.Run);
-            //clsPhotograph.LoadPhotographForm = new clsPhotograph.LoadPhotographFormDelegate(frmPhotograph.Run);
-            //clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
-            Application.Run(frmMain.Instance);
+            if (SvcClient != null &&
+            SvcClient.State != System.ServiceModel.CommunicationState.Closed)
+                SvcClient.Close();
+
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                //clsPainting.LoadPaintingForm = new clsPainting.LoadPaintingFormDelegate(frmPainting.Run);
+                //clsPhotograph.LoadPhotographForm = new clsPhotograph.LoadPhotographFormDelegate(frmPhotograph.Run);
+                //clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
+                Application.Run(frmMain.Instance);
+            }
         }
     }
 }
