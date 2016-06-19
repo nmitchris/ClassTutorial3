@@ -1,20 +1,20 @@
 using System;
 using System.Windows.Forms;
 
-namespace Version_3_C
+namespace Property
 {
-    public partial class frmWork : Form
+    public partial class frmProperty : Form
     {
-        protected clsWork _Work;
+        protected clsProperty _Property;
 
-        public frmWork()
+        public frmProperty()
         {
             InitializeComponent();
         }
 
-        public void SetDetails(clsWork prWork)
+        public void SetDetails(clsProperty prProperty)
         {
-            _Work = prWork;
+            _Property = prProperty;
             updateForm();
             ShowDialog();
         }
@@ -40,16 +40,16 @@ namespace Version_3_C
 
         protected virtual void updateForm()
         {
-            txtName.Text = _Work.Name;
-            txtCreation.Text = _Work.Date.ToShortDateString();
-            txtValue.Text = _Work.Value.ToString();
+            txtName.Text = _Property.Name;
+            txtCreation.Text = _Property.Date.ToShortDateString();
+            txtValue.Text = _Property.Value.ToString();
         }
 
         protected virtual void pushData()
         {
-            _Work.Name = txtName.Text;
-            _Work.Date = DateTime.Parse(txtCreation.Text);
-            _Work.Value = decimal.Parse(txtValue.Text);
+            _Property.Name = txtName.Text;
+            _Property.Date = DateTime.Parse(txtCreation.Text);
+            _Property.Value = decimal.Parse(txtValue.Text);
         }
 
     }

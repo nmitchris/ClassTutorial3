@@ -1,20 +1,20 @@
 using System;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
-    public class clsPainting : clsWork
+    public class clsCommercial : clsProperty
     {
         private float _Width;
         private float _Height;
         private string _Type;
 
-        public delegate void LoadPaintingFormDelegate(clsPainting prPainting);
-        public static LoadPaintingFormDelegate LoadPaintingForm;
+        public delegate void LoadCommericialFormDelegate(clsCommercial prCommercial);
+        public static LoadCommericialFormDelegate LoadCommercialForm;
 
         public override void EditDetails()
         {
-            LoadPaintingForm(this);
+            LoadCommercialForm(this);
         }
 
         public Single Width

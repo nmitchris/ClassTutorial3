@@ -1,28 +1,28 @@
 using System;
 using System.Collections.Generic;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
-    public class clsWorksList : List<clsWork>
+    public class clsPropertiesList : List<clsProperty>
     {
         private byte _SortOrder;
 
         public void AddWork(char prChoice)
         {
-            clsWork lcWork = clsWork.NewWork(prChoice);
+            clsProperty lcWork = clsProperty.NewWork(prChoice);
             if (lcWork != null)
             {
                 Add(lcWork);
             }
         }
 
-        public void EditWork(int prIndex)
+        public void EditProperty(int prIndex)
         {
             if (prIndex >= 0 && prIndex < this.Count)
             {
-                clsWork lcWork = (clsWork)this[prIndex];
-                lcWork.EditDetails();
+                clsProperty lcProperty = (clsProperty)this[prIndex];
+                lcProperty.EditDetails();
             }
             else
                 throw new Exception("Sorry no work selected #" + Convert.ToString(prIndex));
@@ -31,9 +31,9 @@ namespace Version_3_C
         public decimal GetTotalValue()
         {
             decimal lcTotal = 0;
-            foreach (clsWork lcWork in this)
+            foreach (clsProperty lcProperty in this)
             {
-                lcTotal += lcWork.Value;
+                lcTotal += lcProperty.Value;
             }
             return lcTotal;
         }

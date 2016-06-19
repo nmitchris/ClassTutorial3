@@ -1,28 +1,28 @@
 using System;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
-    public abstract class clsWork
+    public abstract class clsProperty
     {
         private string _Name;
         private DateTime _Date = DateTime.Now;
         private decimal _Value;
 
-        public clsWork()
+        public clsProperty()
         {
             EditDetails();
         }
 
-        public static readonly string FACTORY_PROMPT = "Enter P for Painting, S for Sculpture and H for Photograph";
+        public static readonly string FACTORY_PROMPT = "Enter C for Commercial and R for Residential";
 
-        public static clsWork NewWork(char prChoice)
+        public static clsProperty NewWork(char prChoice)
         {
             switch (char.ToUpper(prChoice))
             {
-                case 'P': return new clsPainting();
-                case 'S': return new clsSculpture();
-                case 'H': return new clsPhotograph();
+                case 'C': return new clsCommercial();
+                //case 'S': return new clsSculpture();
+                case 'R': return new clsResidential();
                 default: return null;
             }
         }

@@ -1,13 +1,13 @@
 using System;
 using System.Windows.Forms;
 
-namespace Version_3_C
+namespace Property
 {
     public sealed partial class frmMain : Form
     {   //Singleton
         private static readonly frmMain _Instance = new frmMain();
 
-        private clsArtistList _ArtistList = new clsArtistList();
+        private clsLocationList _LocationList = new clsLocationList();
 
         public delegate void Notify(string prGalleryName);
 
@@ -31,34 +31,34 @@ namespace Version_3_C
 
         public void UpdateDisplay()
         {
-            lstArtists.DataSource = null;
-            string[] lcDisplayList = new string[_ArtistList.Count];
-            _ArtistList.Keys.CopyTo(lcDisplayList, 0);
-            lstArtists.DataSource = lcDisplayList;
-            lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
+            lstLocations.DataSource = null;
+            string[] lcDisplayList = new string[_LocationList.Count];
+            _LocationList.Keys.CopyTo(lcDisplayList, 0);
+            lstLocations.DataSource = lcDisplayList;
+            lblValue.Text = Convert.ToString(_LocationList.GetTotalValue());
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                frmArtist.Run(new clsArtist(_ArtistList));
+                frmLocation.Run(new clsLocation(_LocationList));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error adding new artist");
+                MessageBox.Show(ex.Message, "Error adding new location");
             }
         }
 
-        private void lstArtists_DoubleClick(object sender, EventArgs e)
+        private void lstLocation_DoubleClick(object sender, EventArgs e)
         {
             string lcKey;
 
-            lcKey = Convert.ToString(lstArtists.SelectedItem);
+            lcKey = Convert.ToString(lstLocations.SelectedItem);
             if (lcKey != null)
                 try
                 {
-                    frmArtist.Run(_ArtistList[lcKey]);
+                    frmLocation.Run(_LocationList[lcKey]);
                 }
                 catch (Exception ex)
                 {
@@ -70,7 +70,7 @@ namespace Version_3_C
         {
             try
             {
-                _ArtistList.Save();
+                _LocationList.Save();
             }
             catch (Exception ex)
             {
@@ -83,18 +83,18 @@ namespace Version_3_C
         {
             string lcKey;
 
-            lcKey = Convert.ToString(lstArtists.SelectedItem);
-            if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting artist", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            lcKey = Convert.ToString(lstLocations.SelectedItem);
+            if (lcKey != null && MessageBox.Show("Are you sure?", "Deleting location", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 try
                 {
-                    _ArtistList.Remove(lcKey);
-                    lstArtists.ClearSelected();
+                    _LocationList.Remove(lcKey);
+                    lstLocations.ClearSelected();
                     UpdateDisplay();
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error deleting artist");
+                    MessageBox.Show(ex.Message, "Error deleting location");
                 }
         }
 
@@ -102,7 +102,7 @@ namespace Version_3_C
         {
             try
             {
-                _ArtistList = clsArtistList.RetrieveArtistList();
+                _LocationList = clsLocationList.RetrieveLocationList();
 
             }
             catch (Exception ex)
@@ -111,14 +111,14 @@ namespace Version_3_C
             }
             UpdateDisplay();
             GalleryNameChanged += new Notify(updateTitle);
-            GalleryNameChanged(_ArtistList.GalleryName);
-            //updateTitle(_ArtistList.GalleryName);
+            GalleryNameChanged(_LocationList.GalleryName);
+            //updateTitle(_LocationList.GalleryName);
         }
 
         private void btnGalName_Click(object sender, EventArgs e)
         {
-            _ArtistList.GalleryName = new InputBox("Enter Gallery Name:").Answer;
-            GalleryNameChanged(_ArtistList.GalleryName);
+            _LocationList.GalleryName = new InputBox("Enter Gallery Name:").Answer;
+            GalleryNameChanged(_LocationList.GalleryName);
         }
 
 

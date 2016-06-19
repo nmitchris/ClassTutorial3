@@ -1,6 +1,6 @@
-namespace Version_3_C
+namespace Property
 {
-    partial class frmPhotograph
+    partial class frmCommercial
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@ namespace Version_3_C
             this.Label6.Location = new System.Drawing.Point(9, 174);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(56, 23);
-            this.Label6.TabIndex = 56;
+            this.Label6.TabIndex = 50;
             this.Label6.Text = "Type";
             // 
             // txtHeight
@@ -63,7 +63,7 @@ namespace Version_3_C
             this.Label5.Location = new System.Drawing.Point(9, 142);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(56, 23);
-            this.Label5.TabIndex = 54;
+            this.Label5.TabIndex = 48;
             this.Label5.Text = "Height";
             // 
             // txtWidth
@@ -78,21 +78,21 @@ namespace Version_3_C
             this.Label4.Location = new System.Drawing.Point(9, 110);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(56, 23);
-            this.Label4.TabIndex = 52;
+            this.Label4.TabIndex = 46;
             this.Label4.Text = "Width";
             // 
-            // frmPhotograph
+            // frmPainting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(363, 205);
+            this.ClientSize = new System.Drawing.Size(352, 213);
             this.Controls.Add(this.txtWidth);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtHeight);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.txtType);
-            this.Name = "frmPhotograph";
-            this.Text = "Photograph";
+            this.Name = "frmPainting";
+            this.Text = "Painting";
             this.Controls.SetChildIndex(this.txtType, 0);
             this.Controls.SetChildIndex(this.Label6, 0);
             this.Controls.SetChildIndex(this.txtHeight, 0);

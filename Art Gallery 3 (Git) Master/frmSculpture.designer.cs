@@ -1,4 +1,4 @@
-namespace Version_3_C
+namespace Property
 {
     partial class frmSculpture
     {

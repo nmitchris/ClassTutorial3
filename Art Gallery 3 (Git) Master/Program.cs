@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Version_3_C
+namespace Property
 {
     public static class Program
     {
@@ -17,9 +17,9 @@ namespace Version_3_C
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            clsPainting.LoadPaintingForm = new clsPainting.LoadPaintingFormDelegate(frmPainting.Run);
-            clsPhotograph.LoadPhotographForm = new clsPhotograph.LoadPhotographFormDelegate(frmPhotograph.Run);
-            clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
+            clsCommercial.LoadCommercialForm = new clsCommercial.LoadCommericialFormDelegate(frmCommercial.Run);
+            clsResidential.LoadResidentialForm = new clsResidential.LoadResidentialFormDelegate(frmResidential.Run);
+            //clsSculpture.LoadSculptureForm = new clsSculpture.LoadSculptureFormDelegate(frmSculpture.Run);
             Application.Run(frmMain.Instance);
         }
     }

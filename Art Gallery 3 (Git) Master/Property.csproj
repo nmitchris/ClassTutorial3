@@ -7,8 +7,8 @@
     <ProjectGuid>{6278A118-2037-42B7-8014-E9909ED38BEA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Version_3_C</RootNamespace>
-    <AssemblyName>Art Gallery 3 %28Git%29 Master</AssemblyName>
+    <RootNamespace>Property</RootNamespace>
+    <AssemblyName>Property</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,8 +48,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,20 +72,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsArtist.cs" />
-    <Compile Include="clsArtistList.cs" />
+    <Compile Include="Application.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clsLocation.cs" />
+    <Compile Include="clsLocationList.cs" />
     <Compile Include="clsDateComparer.cs" />
     <Compile Include="clsNameComparer.cs" />
-    <Compile Include="clsPainting.cs" />
-    <Compile Include="clsPhotograph.cs" />
-    <Compile Include="clsSculpture.cs" />
-    <Compile Include="clsWork.cs" />
-    <Compile Include="clsWorksList.cs" />
-    <Compile Include="frmArtist.cs">
+    <Compile Include="clsCommercial.cs" />
+    <Compile Include="clsResidential.cs" />
+    <Compile Include="clsProperty.cs" />
+    <Compile Include="clsPropertiesList.cs" />
+    <Compile Include="Commercial.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmArtist.designer.cs">
-      <DependentUpon>frmArtist.cs</DependentUpon>
+    <Compile Include="frmLocation.designer.cs">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -82,29 +98,19 @@
     <Compile Include="frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPainting.cs">
+    <Compile Include="frmCommercial.cs" />
+    <Compile Include="frmCommercial.designer.cs">
+      <DependentUpon>frmCommercial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResidential.cs" />
+    <Compile Include="frmResidential.designer.cs">
+      <DependentUpon>frmResidential.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProperty.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPainting.designer.cs">
-      <DependentUpon>frmPainting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPhotograph.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPhotograph.designer.cs">
-      <DependentUpon>frmPhotograph.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSculpture.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSculpture.designer.cs">
-      <DependentUpon>frmSculpture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmWork.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWork.designer.cs">
-      <DependentUpon>frmWork.cs</DependentUpon>
+    <Compile Include="frmProperty.designer.cs">
+      <DependentUpon>frmProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
@@ -112,25 +118,46 @@
     <Compile Include="InputBox.designer.cs">
       <DependentUpon>InputBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmArtist.resx">
-      <DependentUpon>frmArtist.cs</DependentUpon>
+    <Compile Include="Property.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Residential.cs">
+      <DependentUpon>PropertyModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmLocation.resx">
+      <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPainting.resx">
-      <DependentUpon>frmPainting.cs</DependentUpon>
+    <EmbeddedResource Include="frmCommercial.resx">
+      <DependentUpon>frmCommercial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPhotograph.resx">
-      <DependentUpon>frmPhotograph.cs</DependentUpon>
+    <EmbeddedResource Include="frmResidential.resx">
+      <DependentUpon>frmResidential.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSculpture.resx">
-      <DependentUpon>frmSculpture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWork.resx">
-      <DependentUpon>frmWork.cs</DependentUpon>
+    <EmbeddedResource Include="frmProperty.resx">
+      <DependentUpon>frmProperty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
@@ -145,6 +172,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,6 +182,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="PropertyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PropertyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PropertyModel.edmx.diagram">
+      <DependentUpon>PropertyModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -161,6 +196,16 @@
   <ItemGroup>
     <Content Include="Database\Gallery_Data.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PropertyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PropertyModel.edmx</DependentUpon>
+      <LastGenOutput>PropertyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PropertyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PropertyModel.edmx</DependentUpon>
+      <LastGenOutput>PropertyModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +219,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

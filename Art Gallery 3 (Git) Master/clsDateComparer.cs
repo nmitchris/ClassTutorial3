@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace Version_3_C
+namespace Property
 {
-    public sealed class clsDateComparer : IComparer<clsWork>
+    public sealed class clsDateComparer : IComparer<clsProperty>
     {   //Singleton
         public static readonly clsDateComparer Instance = new clsDateComparer();
 
         private clsDateComparer() { }
 
-        public int Compare(clsWork x, clsWork y)
+        public int Compare(clsProperty x, clsProperty y)
         {
-            clsWork lcWorkX = x;
-            clsWork lcWorkY = y;
+            clsProperty lcWorkX = x;
+            clsProperty lcWorkY = y;
             DateTime lcDateX = lcWorkX.Date.Date;
             DateTime lcDateY = lcWorkY.Date.Date;
 

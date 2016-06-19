@@ -1,6 +1,6 @@
-namespace Version_3_C
+namespace Property
 {
-    partial class frmWork
+    partial class frmProperty
     {
         /// <summary>
         /// Required designer variable.

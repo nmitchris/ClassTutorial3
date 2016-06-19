@@ -1,6 +1,6 @@
 using System;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
     public class clsSculpture : clsWork

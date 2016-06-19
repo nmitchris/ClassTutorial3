@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Property_DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Application_ID" />
+          </Key>
+          <Property Name="Application_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Applicant_Email" Type="varchar(max)" Nullable="false" />
+          <Property Name="Date_Applied" Type="date" />
+          <Property Name="Date_Start" Type="date" />
+          <Property Name="Date_End" Type="date" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+          </Key>
+          <Property Name="Location_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location_Detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Property_ID" />
+          </Key>
+          <Property Name="Property_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Property_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_Modified" Type="date" Nullable="false" />
+          <Property Name="Lease_Rate" Type="decimal" Precision="3" Scale="3" Nullable="false" />
+          <Property Name="Commercial_Term" Type="bigint" />
+          <Property Name="Residential_Bond" Type="int" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimestStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Location_Property">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Property_ID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="Location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Application_ID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="Property_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Property_DataModelStoreContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Location_Property" Association="Self.FK_Location_Property">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_Application" Association="Self.FK_Property_Application">
+            <End Role="Application" EntitySet="Application" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Property_DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="Application_ID" />
+          </Key>
+          <Property Name="Application_ID" Type="Guid" Nullable="false" />
+          <Property Name="Applicant_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_Applied" Type="DateTime" Precision="0" />
+          <Property Name="Date_Start" Type="DateTime" Precision="0" />
+          <Property Name="Date_End" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Property_Application" FromRole="Application" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+          </Key>
+          <Property Name="Location_ID" Type="Guid" Nullable="false" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Location_Property" FromRole="Location" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Property" Abstract="true">
+          <Key>
+            <PropertyRef Name="Property_ID" />
+          </Key>
+          <Property Name="Property_ID" Type="Guid" Nullable="false" />
+          <Property Name="Date_Modified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Lease_Rate" Type="Decimal" Precision="3" Scale="3" Nullable="false" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimestStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Property_Application" FromRole="Property" ToRole="Application" />
+        </EntityType>
+        <Association Name="FK_Property_Application">
+          <End Role="Application" Type="Self.Application" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Application">
+              <PropertyRef Name="Application_ID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="Property_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Location_Property">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Property_ID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="Location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Property_DataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Applications" EntityType="Self.Application" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <AssociationSet Name="FK_Property_Application" Association="Self.FK_Property_Application">
+            <End Role="Application" EntitySet="Applications" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Property" Association="Self.FK_Location_Property">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Commercial" BaseType="Property_DataModel.Property" >
+          <Property Name="Commercial_Term" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Residential" BaseType="Property_DataModel.Property" >
+          <Property Name="Residential_Bond" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Property_DataModelStoreContainer" CdmEntityContainer="Property_DataEntities">
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="Property_DataModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
+                <ScalarProperty Name="Applicant_Email" ColumnName="Applicant_Email" />
+                <ScalarProperty Name="Date_Applied" ColumnName="Date_Applied" />
+                <ScalarProperty Name="Date_Start" ColumnName="Date_Start" />
+                <ScalarProperty Name="Date_End" ColumnName="Date_End" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="Property_DataModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Location_ID" ColumnName="Location_ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="Location_Detail" ColumnName="Location_Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="IsTypeOf(Property_DataModel.Property)">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TimestStamp" ColumnName="TimestStamp" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Lease_Rate" ColumnName="Lease_Rate" />
+                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Property_DataModel.Commercial)">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Commercial_Term" ColumnName="Commercial_Term" />
+                <Condition ColumnName="Property_Type" Value="Commercial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Property_DataModel.Residential)">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Property_ID" ColumnName="Property_ID" />
+                <ScalarProperty Name="Residential_Bond" ColumnName="Residential_Bond" />
+                <Condition ColumnName="Property_Type" Value="Residential" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -2,30 +2,30 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
-    public class clsArtistList : SortedDictionary<string, clsArtist>
+    public class clsLocationList : SortedDictionary<string, clsLocation>
     {
         private const string _FileName = "gallery.dat";
         private string _GalleryName;
 
-        public void NewArtist(clsArtist prArtist)
+        public void NewArtist(clsLocation prLocation)
         {
-            if (!string.IsNullOrEmpty(prArtist.Name))
+            if (!string.IsNullOrEmpty(prLocation.Name))
             {
-                Add(prArtist.Name, prArtist);
+                Add(prLocation.Name, prLocation);
             }
             else
-                throw new Exception("No artist name entered");
+                throw new Exception("No location name entered");
         }
 
         public decimal GetTotalValue()
         {
             decimal lcTotal = 0;
-            foreach (clsArtist lcArtist in Values)
+            foreach (clsLocation lcLocation in Values)
             {
-                lcTotal += lcArtist.TotalValue;
+                lcTotal += lcLocation.TotalValue;
             }
             return lcTotal;
         }
@@ -36,22 +36,22 @@ namespace Version_3_C
             set { _GalleryName = value; }
         }
  
-        public static clsArtistList RetrieveArtistList()
+        public static clsLocationList RetrieveLocationList()
         {
-            clsArtistList lcArtistList;
+            clsLocationList lcLocationList;
             try
             {
                 System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Open);
                 BinaryFormatter lcFormatter = new BinaryFormatter();
-                lcArtistList = (clsArtistList)lcFormatter.Deserialize(lcFileStream);
+                lcLocationList = (clsLocationList)lcFormatter.Deserialize(lcFileStream);
                 lcFileStream.Close();
             }
             catch (Exception ex)
             {
-                lcArtistList = new clsArtistList();
+                lcLocationList = new clsLocationList();
                 throw new Exception("File Retrieve Error: " + ex.Message);
             }
-            return lcArtistList;
+            return lcLocationList;
         }
 
         public void Save()

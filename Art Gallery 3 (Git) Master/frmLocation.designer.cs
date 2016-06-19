@@ -1,6 +1,6 @@
-namespace Version_3_C
+namespace Property
 {
-    partial class frmArtist
+    partial class frmLocation
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@ namespace Version_3_C
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
-            this.lstWorks = new System.Windows.Forms.ListBox();
+            this.lstProperties = new System.Windows.Forms.ListBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.txtSpeciality = new System.Windows.Forms.TextBox();
@@ -127,11 +127,11 @@ namespace Version_3_C
             // 
             // lstWorks
             // 
-            this.lstWorks.Location = new System.Drawing.Point(11, 137);
-            this.lstWorks.Name = "lstWorks";
-            this.lstWorks.Size = new System.Drawing.Size(224, 82);
-            this.lstWorks.TabIndex = 20;
-            this.lstWorks.DoubleClick += new System.EventHandler(this.lstWorks_DoubleClick);
+            this.lstProperties.Location = new System.Drawing.Point(11, 137);
+            this.lstProperties.Name = "lstWorks";
+            this.lstProperties.Size = new System.Drawing.Size(224, 82);
+            this.lstProperties.TabIndex = 20;
+            this.lstProperties.DoubleClick += new System.EventHandler(this.lstProperties_DoubleClick);
             // 
             // txtPhone
             // 
@@ -191,7 +191,7 @@ namespace Version_3_C
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.Label4);
-            this.Controls.Add(this.lstWorks);
+            this.Controls.Add(this.lstProperties);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.txtSpeciality);
@@ -217,7 +217,7 @@ namespace Version_3_C
         internal System.Windows.Forms.Button btnDelete;
         internal System.Windows.Forms.Button btnAdd;
         internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.ListBox lstWorks;
+        internal System.Windows.Forms.ListBox lstProperties;
         internal System.Windows.Forms.TextBox txtPhone;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.TextBox txtSpeciality;

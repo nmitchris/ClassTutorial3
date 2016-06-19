@@ -1,21 +1,21 @@
 using System;
 
-namespace Version_3_C
+namespace Property
 {
     [Serializable()]
-    public class clsPhotograph : clsWork
+    public class clsResidential : clsProperty
     {
         private float _Width;
         private float _Height;
         private string _Type;
 
-        public delegate void LoadPhotographFormDelegate(clsPhotograph prPhotograph);
-        public static LoadPhotographFormDelegate LoadPhotographForm;
+        public delegate void LoadResidentialFormDelegate(clsResidential prPhotograph);
+        public static LoadResidentialFormDelegate LoadResidentialForm;
 
 
         public override void EditDetails()
         {
-            LoadPhotographForm(this);
+            LoadResidentialForm(this);
         }
 
         public Single Width

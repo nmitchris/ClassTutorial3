@@ -1,4 +1,4 @@
-namespace Version_3_C
+namespace Property
 {
     partial class frmMain
     {
@@ -34,7 +34,7 @@ namespace Version_3_C
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.Label1 = new System.Windows.Forms.Label();
-            this.lstArtists = new System.Windows.Forms.ListBox();
+            this.lstLocations = new System.Windows.Forms.ListBox();
             this.btnGalName = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -90,11 +90,11 @@ namespace Version_3_C
             // 
             // lstArtists
             // 
-            this.lstArtists.Location = new System.Drawing.Point(17, 29);
-            this.lstArtists.Name = "lstArtists";
-            this.lstArtists.Size = new System.Drawing.Size(136, 173);
-            this.lstArtists.TabIndex = 7;
-            this.lstArtists.DoubleClick += new System.EventHandler(this.lstArtists_DoubleClick);
+            this.lstLocations.Location = new System.Drawing.Point(17, 29);
+            this.lstLocations.Name = "lstArtists";
+            this.lstLocations.Size = new System.Drawing.Size(136, 173);
+            this.lstLocations.TabIndex = 7;
+            this.lstLocations.DoubleClick += new System.EventHandler(this.lstLocation_DoubleClick);
             // 
             // btnGalName
             // 
@@ -117,7 +117,7 @@ namespace Version_3_C
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.Label1);
-            this.Controls.Add(this.lstArtists);
+            this.Controls.Add(this.lstLocations);
             this.Name = "frmMain";
             this.Text = "Gallery (v3 C)";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -133,7 +133,7 @@ namespace Version_3_C
         internal System.Windows.Forms.Button btnDelete;
         internal System.Windows.Forms.Button btnAdd;
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.ListBox lstArtists;
+        internal System.Windows.Forms.ListBox lstLocations;
         internal System.Windows.Forms.Button btnGalName;
     }
 }
