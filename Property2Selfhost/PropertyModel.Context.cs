@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PropertySelfhost
+namespace Property2Selfhost
 {
     using System;
     using System.Data.Entity;
@@ -25,6 +25,7 @@ namespace PropertySelfhost
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Application> Applications { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
     }

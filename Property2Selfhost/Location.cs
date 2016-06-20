@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PropertySelfhost
+namespace Property2Selfhost
 {
     using System;
     using System.Collections.Generic;
@@ -17,14 +17,14 @@ namespace PropertySelfhost
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Location()
         {
-            this.Property_ID = new HashSet<Property>();
+            this.Properties = new HashSet<Property>();
         }
     
-        public string Location_ID { get; set; }
+        public int Location_ID { get; set; }
         public string City_Name { get; set; }
         public string Location_Detail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Property> Property_ID { get; set; }
+        public virtual ICollection<Property> Properties { get; set; }
     }
 }

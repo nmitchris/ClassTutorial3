@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Property
+namespace Property2Selfhost
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Location
+    public partial class Application
     {
-        public System.Guid Location_ID { get; set; }
-        public string City_Name { get; set; }
-        public string Location_Detail { get; set; }
+        public int Application_ID { get; set; }
+        public string Applicant_Email { get; set; }
+        public Nullable<System.DateTime> Date_Applied { get; set; }
+        public Nullable<System.DateTime> Date_Start { get; set; }
+        public Nullable<System.DateTime> Date_End { get; set; }
+        public int Property_ID { get; set; }
     
         public virtual Property Property { get; set; }
     }

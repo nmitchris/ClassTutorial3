@@ -7,20 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Property
+namespace Property2Selfhost
 {
     using System;
     using System.Collections.Generic;
     
     public abstract partial class Property
     {
-        public System.Guid Property_ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Property()
+        {
+            this.Applications = new HashSet<Application>();
+        }
+    
+        public int Property_ID { get; set; }
         public System.DateTime Date_Modified { get; set; }
         public decimal Lease_Rate { get; set; }
         public string Owner { get; set; }
         public byte[] TimestStamp { get; set; }
         public string Address { get; set; }
+        public int Location_ID { get; set; }
     
-        public virtual Application Application { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Application> Applications { get; set; }
+        public virtual Location Location { get; set; }
     }
 }

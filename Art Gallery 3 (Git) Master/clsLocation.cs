@@ -5,9 +5,9 @@ namespace Property
     [Serializable()]
     public class clsLocation
     {
-        private string _Name;
-        private string _Speciality;
-        private string _Phone;
+        private string _Location_ID;
+        private string _City_Name;
+        private string _Location_Detail;
 
         private clsPropertiesList _PropertiesList;
         private clsLocationList _LocationList;
@@ -35,20 +35,20 @@ namespace Property
 
         public string Name
         {
-            get { return _Name; }
-            set { _Name = value; }
+            get { return _Location_ID; }
+            set { _Location_ID = value; }
         }
 
         public string Speciality
         {
-            get { return _Speciality; }
-            set { _Speciality = value; }
+            get { return _City_Name; }
+            set { _City_Name = value; }
         }
 
         public string Phone
         {
-            get { return _Phone; }
-            set { _Phone = value; }
+            get { return _Location_Detail; }
+            set { _Location_Detail = value; }
         }
 
         public decimal TotalValue

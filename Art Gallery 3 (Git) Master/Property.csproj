@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -72,9 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs">
-      <DependentUpon>PropertyModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="clsApplication.cs" />
     <Compile Include="clsLocation.cs" />
     <Compile Include="clsLocationList.cs" />
     <Compile Include="clsDateComparer.cs" />
@@ -83,8 +81,11 @@
     <Compile Include="clsResidential.cs" />
     <Compile Include="clsProperty.cs" />
     <Compile Include="clsPropertiesList.cs" />
-    <Compile Include="Commercial.cs">
-      <DependentUpon>PropertyModel.tt</DependentUpon>
+    <Compile Include="frmApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApplication.Designer.cs">
+      <DependentUpon>frmApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLocation.cs">
       <SubType>Form</SubType>
@@ -98,11 +99,15 @@
     <Compile Include="frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCommercial.cs" />
+    <Compile Include="frmCommercial.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCommercial.designer.cs">
       <DependentUpon>frmCommercial.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmResidential.cs" />
+    <Compile Include="frmResidential.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmResidential.designer.cs">
       <DependentUpon>frmResidential.cs</DependentUpon>
     </Compile>
@@ -118,32 +123,11 @@
     <Compile Include="InputBox.designer.cs">
       <DependentUpon>InputBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Location.cs">
-      <DependentUpon>PropertyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Property.cs">
-      <DependentUpon>PropertyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PropertyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PropertyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PropertyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Residential.cs">
-      <DependentUpon>PropertyModel.tt</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="frmApplication.resx">
+      <DependentUpon>frmApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLocation.resx">
       <DependentUpon>frmLocation.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,31 +166,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="PropertyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PropertyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PropertyModel.edmx.diagram">
-      <DependentUpon>PropertyModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database\Gallery_Data.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PropertyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PropertyModel.edmx</DependentUpon>
-      <LastGenOutput>PropertyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PropertyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PropertyModel.edmx</DependentUpon>
-      <LastGenOutput>PropertyModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -222,6 +184,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\Property_Data.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Property_Data_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Property_Data.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\2016_NMIT\1_S1\SDV701\Property\Art Gallery 3 (Git) Master\PropertyModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\2016_NMIT\1_S1\SDV701\Property\Property2Selfhost\PropertyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

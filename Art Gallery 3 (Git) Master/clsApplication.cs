@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PropertySelfhost
+namespace Property
 {
-    class Program
+    [Serializable()]
+    class clsApplication
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
