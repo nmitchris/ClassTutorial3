@@ -19,7 +19,7 @@ namespace Property2WinForm
 
         public delegate void Notify(string prLocationName);
 
-        public event Notify PropertyNameChanged;
+        //public event Notify PropertyNameChanged;
 
         private frmMain()
         {
@@ -209,7 +209,7 @@ namespace Property2WinForm
             {
                 //frmLocation.Run(new clsLocation(_LocationList));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message, "Error adding new location");
             }
