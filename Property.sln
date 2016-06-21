@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Property2", "Property2", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Property2Selfhost", "Property2Selfhost\Property2Selfhost.csproj", "{1054D63E-A799-4FF7-84E6-C286560CDCAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Property2WinForm", "Property2WinForm\Property2WinForm.csproj", "{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,11 +55,28 @@ Global
 		{1054D63E-A799-4FF7-84E6-C286560CDCAE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1054D63E-A799-4FF7-84E6-C286560CDCAE}.Release|x86.ActiveCfg = Release|Any CPU
 		{1054D63E-A799-4FF7-84E6-C286560CDCAE}.Release|x86.Build.0 = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Debug|x86.Build.0 = Debug|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|ARM.Build.0 = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|x86.ActiveCfg = Release|Any CPU
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1054D63E-A799-4FF7-84E6-C286560CDCAE} = {FBFB79CF-D2A4-4140-9D33-753B1CACFAE2}
+		{FFB972A9-96FF-4CFB-8CAA-8959EC507E67} = {FBFB79CF-D2A4-4140-9D33-753B1CACFAE2}
 	EndGlobalSection
 EndGlobal

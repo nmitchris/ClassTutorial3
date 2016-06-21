@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1bcc9600-0db7-4763-887c-ed154ab76095" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://f00031144:50561/Service1" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="cc9378cb-d418-4020-8c2d-b50ea36066bc" SourceId="1" SourceUrl="http://f00031144:50561/Service1?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="e09176ec-65b6-49da-b0e3-a816c4902887" SourceId="1" SourceUrl="http://f00031144:50561/Service1?wsdl" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="701917e8-fd55-4b45-ad90-8a3ef65d54dd" SourceId="1" SourceUrl="http://f00031144:50561/Service1?xsd=xsd0" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="c1d5c89f-874c-4bb5-8610-b21aea7e3356" SourceId="1" SourceUrl="http://f00031144:50561/Service1?xsd=xsd1" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="6953de8c-4927-478d-8e4d-52842e310bef" SourceId="1" SourceUrl="http://f00031144:50561/Service1?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
