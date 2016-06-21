@@ -13,16 +13,35 @@
   <wsdl:message name="IService1_GetLocationNames_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLocationNamesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetLocationNames">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLocationNames" message="tns:IService1_GetLocationNames_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLocationNamesResponse" message="tns:IService1_GetLocationNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLocation" message="tns:IService1_GetLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLocationResponse" message="tns:IService1_GetLocation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetLocationNames">
       <soap:operation soapAction="http://tempuri.org/IService1/GetLocationNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLocation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

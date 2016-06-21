@@ -61,6 +61,7 @@
     <Compile Include="Commercial.cs">
       <DependentUpon>PropertyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="Location.cs">
       <DependentUpon>PropertyModel.tt</DependentUpon>

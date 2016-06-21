@@ -1,5 +1,7 @@
 using System;
 using System.Windows.Forms;
+using Property2WinForm.ServiceReference1;
+using Property2Selfhost.DTO;
 
 namespace Property2WinForm
 {
@@ -48,23 +50,51 @@ namespace Property2WinForm
         }
 
 
-    private void lstLocations_DoubleClick(object sender, EventArgs e)
-    {
-        //string lcKey;
+        private void lstLocations_DoubleClick(object sender, EventArgs e)
+        {
+            string lcKey;
 
-        //lcKey = Convert.ToString(lstLocations.SelectedItem);
-        //if (lcKey != null)
-        //    try
-        //    {
-        //        frmLocation.Run(_LocationList[lcKey]);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "This should never occur");
-        //    }
-    }
+            lcKey = Convert.ToString(lstLocations.SelectedItem);
+            if (lcKey != null)
+                try
+                {
+                    //frmLocation.Run(lstLocations.SelectedItem as string);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "This should never occur");
+                }
+        }
 
-         private void btnGalName_Click(object sender, EventArgs e)
+        //private refreshFormFromDB(string prLocationName)
+        //{
+        //SetDetails(Program.SvcClient.GetLocation(prLocationName));
+        //}
+
+        public static void Run(string prLocationName)
+        {
+            //frmLocation lcLocationForm;
+            //if (string.IsNullOrEmpty(prLocationName) ||
+            //!_LocationFormList.TryGetValue(prLocationName, out lcLocationForm))
+            //{
+            //    lcLocationForm = new frmLocation();
+            //    if (string.IsNullOrEmpty(prLocationName))
+            //        lcLocationForm.SetDetails(new clsLocation());
+            //    else
+            //    {
+            //        _LocationFormList.Add(prLocationName, lcLocationForm);
+            //        lcLocationForm.refreshFormFromDB(prLocationName);
+            //    }
+            //}
+            //else
+            //{
+            //    lcLocationForm.Show();
+            //    lcLocationForm.Activate();
+            //}
+
+        }
+
+        private void btnGalName_Click(object sender, EventArgs e)
         {
             //_LocationList.PropertyName = new InputBox("Enter Property Name:").Answer;
             //PropertyNameChanged(_LocationList.PropertyName);
@@ -82,9 +112,9 @@ namespace Property2WinForm
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(290, 193);
+            this.btnAdd.Location = new System.Drawing.Point(223, 65);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(96, 38);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Applications";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -95,15 +125,15 @@ namespace Property2WinForm
             this.lstLocations.FormattingEnabled = true;
             this.lstLocations.Location = new System.Drawing.Point(24, 65);
             this.lstLocations.Name = "lstLocations";
-            this.lstLocations.Size = new System.Drawing.Size(238, 251);
+            this.lstLocations.Size = new System.Drawing.Size(179, 199);
             this.lstLocations.TabIndex = 1;
             this.lstLocations.DoubleClick += new System.EventHandler(this.lstLocations_DoubleClick);
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(290, 245);
+            this.btnQuit.Location = new System.Drawing.Point(223, 277);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(75, 23);
+            this.btnQuit.Size = new System.Drawing.Size(96, 38);
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -111,9 +141,9 @@ namespace Property2WinForm
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(290, 293);
+            this.btnDelete.Location = new System.Drawing.Point(223, 124);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(96, 38);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -141,7 +171,7 @@ namespace Property2WinForm
             // 
             // frmMain
             // 
-            this.ClientSize = new System.Drawing.Size(401, 399);
+            this.ClientSize = new System.Drawing.Size(334, 329);
             this.Controls.Add(this.lbfrmMainSelectLoco);
             this.Controls.Add(this.lbfrmMainTitle);
             this.Controls.Add(this.btnDelete);
@@ -149,6 +179,7 @@ namespace Property2WinForm
             this.Controls.Add(this.lstLocations);
             this.Controls.Add(this.btnAdd);
             this.Name = "frmMain";
+            this.Text = "Property (v1)";
             this.Load += new System.EventHandler(this.frmMain_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

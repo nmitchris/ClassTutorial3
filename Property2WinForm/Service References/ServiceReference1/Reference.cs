@@ -20,6 +20,12 @@ namespace Property2WinForm.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLocationNames", ReplyAction="http://tempuri.org/IService1/GetLocationNamesResponse")]
         System.Threading.Tasks.Task<string[]> GetLocationNamesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLocation", ReplyAction="http://tempuri.org/IService1/GetLocationResponse")]
+        string[] GetLocation();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLocation", ReplyAction="http://tempuri.org/IService1/GetLocationResponse")]
+        System.Threading.Tasks.Task<string[]> GetLocationAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace Property2WinForm.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> GetLocationNamesAsync() {
             return base.Channel.GetLocationNamesAsync();
+        }
+        
+        public string[] GetLocation() {
+            return base.Channel.GetLocation();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetLocationAsync() {
+            return base.Channel.GetLocationAsync();
         }
     }
 }

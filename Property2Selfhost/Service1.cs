@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Property2Selfhost.DTO;
 
 namespace Property2Selfhost
 {
@@ -16,5 +17,15 @@ namespace Property2Selfhost
                 .ToList();
         }
 
+        public List<string> GetLocation()
+        {
+            using (Property_DataEntities lcContext = new Property_DataEntities())
+                return lcContext.Locations
+                .Select(lcLocation => lcLocation.City_Name)
+                .ToList();
+        }
+
+
     }
+
 }
