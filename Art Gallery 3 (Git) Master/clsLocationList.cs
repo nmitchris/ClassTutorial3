@@ -2,7 +2,8 @@
 // GITHUB - FORKED MODIFIED BY: CHRISTOPHER D'ENTREMONT
 // 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
 // TIERED SOFTWARE C# APPLICATION
-// PROPERTY / 'CLSLOCATIONLIST' CLASS
+// PROPERTY / 'CLSLOCATIONLIST' SERIALIZABLE CLASS (CANNOT BE INHERITED)
+// INCLUSIVE OF - DICTIONARY - COLLECTION OF KEY/VALUE PAIRS SORTED ON THE KEY
 
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Property
 {
+    //Serialization is the conversion of an object to a series of bytes, 
+    //so that the object can be easily saved to persistent storage or streamed across a communication link.
     [Serializable()]
     public class clsLocationList : SortedDictionary<string, clsLocation>
     {

@@ -2,8 +2,8 @@
 // GITHUB - FORKED MODIFIED BY: CHRISTOPHER D'ENTREMONT
 // 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
 // TIERED SOFTWARE C# APPLICATION
-// PROPERTY / 'CLSDATECOMPARER' CLASS
-// OBSERVER PATTERN
+// PROPERTY / 'CLSDATECOMPARER' SEALED subCLASS / OF ICOMPARER 'CLSPROPERTY' SUPERCLASS
+// SINGLETON PATTERN
 
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,9 @@ using System.Collections.Generic;
 namespace Property
 {
     public sealed class clsDateComparer : IComparer<clsProperty>
-    {   //Singleton
+    {   //Singleton pattern
         public static readonly clsDateComparer Instance = new clsDateComparer();
 
-        //Think 'Obsever Pattern'
         private clsDateComparer() { }
 
         public int Compare(clsProperty x, clsProperty y)
