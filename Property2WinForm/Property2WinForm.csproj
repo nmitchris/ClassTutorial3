@@ -133,6 +133,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Art Gallery 3 %28Git%29 Master\Property.csproj">
+      <Project>{6278A118-2037-42B7-8014-E9909ED38BEA}</Project>
+      <Name>Property</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Property2Selfhost\Property2Selfhost.csproj">
       <Project>{1054D63E-A799-4FF7-84E6-C286560CDCAE}</Project>
       <Name>Property2Selfhost</Name>

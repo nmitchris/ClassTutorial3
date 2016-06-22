@@ -1,11 +1,12 @@
-﻿using System;
+﻿// CHRISTOPHER D'ENTREMONT 
+// 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
+// TIERED SOFTWARE C# APPLICATION
+// PROPERTY2SELFHOST / 'DTO' CLASS - (DATA TRANSFER OBJECT)
+// GETS AND SETS DB INFORMATION - TABLE / ATTRIBUTE CONNECTIONS 
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using Property2Selfhost;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Property2Selfhost.DTO
 {
@@ -25,7 +26,10 @@ namespace Property2Selfhost.DTO
         public string Location_Detail { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Property> Properties { get; set; }
+        public virtual ICollection<Property> Properties { get; set; }
+
+        // 'GetLocation' Method - strings parameter 'prLocationName'
+        //  Associates 'prLocationName' with  DB Table and Attribute.
         public clsLocation GetLocation(string prLocationName)
         {
             using (Property_DataEntities lcContext = new Property_DataEntities())
@@ -35,6 +39,7 @@ namespace Property2Selfhost.DTO
                 .Where(Location => Location.City_Name == prLocationName)
                 .FirstOrDefault();
                 //C# shorthand for creating an object and assigning the public member variables
+                //  Applies SQL 'querylike' approach (SELECT Attribute / FROM Table) to access DB data. 
                 clsLocation lcLocationDTO = new clsLocation()
                 { City_Name = lcLocation.City_Name, Location_Detail = lcLocation.Location_Detail };
                 return lcLocationDTO;

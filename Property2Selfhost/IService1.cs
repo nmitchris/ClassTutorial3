@@ -1,6 +1,11 @@
-﻿using System.Collections.Generic;
+﻿// CHRISTOPHER D'ENTREMONT 
+// 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
+// TIERED SOFTWARE C# APPLICATION
+// PROPERTY2SELFHOST / 'ISERVICE1' CLASS
+// CALLS OR USES METHODS FROM 'SERVICE1' CLASS
+
+using System.Collections.Generic;
 using System.ServiceModel;
-using Property2Selfhost.DTO;
 
 namespace Property2Selfhost
 {

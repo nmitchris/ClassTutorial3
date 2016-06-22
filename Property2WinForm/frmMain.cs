@@ -1,12 +1,17 @@
+// 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
+// TIERED SOFTWARE C# APPLICATION
+// PROPERTY2WINFORM / 'FRMMAIN' CLASS / FORM / SINGLETON PATTERN (INSTANCE)
+// FORM ATTRIBUTE OPERATIONS / INITIALISE CONPONENT FORM BUILD
+// WIP - I THINK THIS FORM HAS AN ISSUE WITH A MISSING 'USING'???
+
 using System;
 using System.Windows.Forms;
-using Property2WinForm.ServiceReference1;
-using Property2Selfhost.DTO;
 
 namespace Property2WinForm
 {
     public sealed partial class frmMain : Form
-    {   //Singleton
+    {   //frmMain is a Singleton (instance)
+        //=========
         private Button btnAdd;
         private ListBox lstLocations;
         private Button btnQuit;
@@ -49,6 +54,8 @@ namespace Property2WinForm
             //lblValue.Text = Convert.ToString(_LocationList.GetTotalValue());
         }
 
+        //Lab 3 - Part 4bv - Need to correct double click operation.
+        // WIP - 'frmLocation.Run(...)' - issue with using??? 22/6/2016 Cd'E
 
         private void lstLocations_DoubleClick(object sender, EventArgs e)
         {
@@ -94,6 +101,7 @@ namespace Property2WinForm
 
         }
 
+        //Not used DELETE EventArgs btnGalName - after demo.
         private void btnGalName_Click(object sender, EventArgs e)
         {
             //_LocationList.PropertyName = new InputBox("Enter Property Name:").Answer;
@@ -131,7 +139,7 @@ namespace Property2WinForm
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(223, 277);
+            this.btnQuit.Location = new System.Drawing.Point(223, 279);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(96, 38);
             this.btnQuit.TabIndex = 2;
@@ -141,7 +149,7 @@ namespace Property2WinForm
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(223, 124);
+            this.btnDelete.Location = new System.Drawing.Point(223, 126);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 38);
             this.btnDelete.TabIndex = 3;
@@ -165,9 +173,9 @@ namespace Property2WinForm
             this.lbfrmMainSelectLoco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbfrmMainSelectLoco.Location = new System.Drawing.Point(24, 40);
             this.lbfrmMainSelectLoco.Name = "lbfrmMainSelectLoco";
-            this.lbfrmMainSelectLoco.Size = new System.Drawing.Size(179, 13);
+            this.lbfrmMainSelectLoco.Size = new System.Drawing.Size(120, 13);
             this.lbfrmMainSelectLoco.TabIndex = 5;
-            this.lbfrmMainSelectLoco.Text = "SELECT DESIRED LOCATION";
+            this.lbfrmMainSelectLoco.Text = "SELECT LOCATION";
             // 
             // frmMain
             // 
@@ -238,5 +246,6 @@ namespace Property2WinForm
             //        MessageBox.Show(ex.Message, "Error deleting location");
             //    }
         }
+
     }
 }

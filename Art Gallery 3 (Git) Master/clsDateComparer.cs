@@ -1,3 +1,10 @@
+// MATTHIAS OTTO - NMIT SDV701 GALLERY EXAMPLE
+// GITHUB - FORKED MODIFIED BY: CHRISTOPHER D'ENTREMONT
+// 20160623 - SDV701 - ASSESSMENT 1 PHASE 2 - PROPERTY (LOCATION / LEASE) APPLICATION
+// TIERED SOFTWARE C# APPLICATION
+// PROPERTY / 'CLSDATECOMPARER' CLASS
+// OBSERVER PATTERN
+
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +14,7 @@ namespace Property
     {   //Singleton
         public static readonly clsDateComparer Instance = new clsDateComparer();
 
+        //Think 'Obsever Pattern'
         private clsDateComparer() { }
 
         public int Compare(clsProperty x, clsProperty y)
